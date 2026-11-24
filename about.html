@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            background-color: #f4f7fb;
+            color: #334155;
+        }
+
+     
+        .navbar {
+            background-color: #123a5a;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a:focus {
+            background-color: #2879a8;
+        }
+
+
+        .hero {
+            background: linear-gradient(135deg, #123a5a, #176b87);
+            color: white;
+            text-align: center;
+            padding: 75px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        .hero h3 {
+            color: #bde8f5;
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 20px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background-color: white;
+            color: #123a5a;
+            text-decoration: none;
+            padding: 11px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .hero-button:hover,
+        .hero-button:focus {
+            background-color: #dceef7;
+        }
+
+        main {
+            max-width: 1050px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 28px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(15, 45, 70, 0.07);
+            scroll-margin-top: 85px;
+        }
+
+        h2 {
+            color: #123a5a;
+            font-size: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dceaf2;
+        }
+
+        h3 {
+            color: #176b87;
+            margin: 12px 0 8px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        ul,
+        ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+  
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #f4f8fb;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2879a8;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #dceef7;
+            color: #123a5a;
+            padding: 4px 10px;
+            margin: 4px 3px 4px 0;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+
+        .profile-image {
+            display: block;
+            width: 250px;
+            height: 300px;
+            max-width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px auto;
+            border: 4px solid #dceaf2;
+        }
+
+        .image-note {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        form {
+            max-width: 600px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 15px 0 5px;
+            color: #123a5a;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 2px solid #2879a8;
+            border-color: #2879a8;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #123a5a;
+            color: white;
+            padding: 12px 22px;
+            margin-top: 18px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover,
+        button:focus {
+            background-color: #176b87;
+        }
+
+   
+        footer {
+            background-color: #123a5a;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            margin: 4px 0;
+        }
+
+    
+        @media (max-width: 650px) {
+            .navbar {
+                position: static;
+                padding: 12px 8px;
+                gap: 4px;
+            }
+
+            .navbar a {
+                font-size: 13px;
+                padding: 7px 9px;
+            }
+
+            .hero {
+                padding: 50px 18px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero h3 {
+                font-size: 18px;
+            }
+
+            main {
+                padding: 18px 12px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+      </style>
+</head>
+    <nav class="navbar" aria-label="Main navigation">
+        <a href="index.html" class="nav-link" >Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="careergoals.html" class="nav-link">Career Goals</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+  <a href="#about" class="hero-button">Learn More About Me</a>
+    </header>
+
+    <main>
+
+     
+        <section id="about">
+            <h2>About</h2>
+
+            <p>
+                My name is Tony Masunyane, and I am a System Development
+                Intern with an interest in information technology,
+                website development, and computer systems.
+            </p>
+
+            <p>
+                I enjoy learning new skills, solving problems, and
+                applying my knowledge through practical projects.
+                I am committed to improving my abilities and growing
+                into a professional software developer.
+            </p>
+        </section>
+<body>
+
+</body>
+</html>
